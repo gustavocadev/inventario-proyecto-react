@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { Button } from "~/components/ui/button";
-import { Input } from "~/components/ui/input";
+import { useState } from 'react';
+import { Button } from '~/components/ui/button';
+import { Input } from '~/components/ui/input';
 import {
   Table,
   TableBody,
@@ -8,36 +8,36 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "~/components/ui/table";
-import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
+} from '~/components/ui/table';
+import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "~/components/ui/select";
+} from '~/components/ui/select';
 
 type Factura = {
   id: number;
   mesa: number;
   items: { nombre: string; precio: number; cantidad: number }[];
   total: number;
-  estado: "pendiente" | "pagada";
+  estado: 'pendiente' | 'pagada';
   metodoPago?: string;
 };
 
 export default function FacturacionPagos() {
   const [facturas, setFacturas] = useState<Factura[]>([]);
   const [nuevaFactura, setNuevaFactura] = useState({
-    mesa: "",
-    items: [{ nombre: "", precio: "", cantidad: "" }],
+    mesa: '',
+    items: [{ nombre: '', precio: '', cantidad: '' }],
   });
 
   const agregarItem = () => {
     setNuevaFactura({
       ...nuevaFactura,
-      items: [...nuevaFactura.items, { nombre: "", precio: "", cantidad: "" }],
+      items: [...nuevaFactura.items, { nombre: '', precio: '', cantidad: '' }],
     });
   };
 
@@ -71,12 +71,12 @@ export default function FacturacionPagos() {
           mesa: parseInt(nuevaFactura.mesa),
           items,
           total,
-          estado: "pendiente",
+          estado: 'pendiente',
         },
       ]);
       setNuevaFactura({
-        mesa: "",
-        items: [{ nombre: "", precio: "", cantidad: "" }],
+        mesa: '',
+        items: [{ nombre: '', precio: '', cantidad: '' }],
       });
     }
   };
@@ -85,7 +85,7 @@ export default function FacturacionPagos() {
     setFacturas(
       facturas.map((factura) =>
         factura.id === id
-          ? { ...factura, estado: "pagada", metodoPago }
+          ? { ...factura, estado: 'pagada', metodoPago }
           : factura
       )
     );
@@ -113,7 +113,7 @@ export default function FacturacionPagos() {
                   placeholder="Nombre del item"
                   value={item.nombre}
                   onChange={(e) =>
-                    actualizarItem(index, "nombre", e.target.value)
+                    actualizarItem(index, 'nombre', e.target.value)
                   }
                 />
                 <Input
@@ -121,7 +121,7 @@ export default function FacturacionPagos() {
                   type="number"
                   value={item.precio}
                   onChange={(e) =>
-                    actualizarItem(index, "precio", e.target.value)
+                    actualizarItem(index, 'precio', e.target.value)
                   }
                 />
                 <Input
@@ -129,7 +129,7 @@ export default function FacturacionPagos() {
                   type="number"
                   value={item.cantidad}
                   onChange={(e) =>
-                    actualizarItem(index, "cantidad", e.target.value)
+                    actualizarItem(index, 'cantidad', e.target.value)
                   }
                 />
               </div>
@@ -160,10 +160,10 @@ export default function FacturacionPagos() {
                   </div>
                 ))}
               </TableCell>
-              <TableCell>${factura.total.toFixed(2)}</TableCell>
+              <TableCell>S/. {factura.total.toFixed(2)}</TableCell>
               <TableCell>{factura.estado}</TableCell>
               <TableCell>
-                {factura.estado === "pendiente" && (
+                {factura.estado === 'pendiente' && (
                   <Select
                     onValueChange={(value) => registrarPago(factura.id, value)}
                   >
@@ -177,7 +177,7 @@ export default function FacturacionPagos() {
                     </SelectContent>
                   </Select>
                 )}
-                {factura.estado === "pagada" && factura.metodoPago}
+                {factura.estado === 'pagada' && factura.metodoPago}
               </TableCell>
             </TableRow>
           ))}
