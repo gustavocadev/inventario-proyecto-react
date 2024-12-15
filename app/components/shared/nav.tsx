@@ -20,9 +20,6 @@ export const Nav = ({ onToggleSidebar }: NavbarProps) => {
         <Button variant="ghost" size="sm">
           Ayuda
         </Button>
-        <Button variant="ghost" size="sm">
-          Perfil
-        </Button>
       </div>
     </nav>
   );
