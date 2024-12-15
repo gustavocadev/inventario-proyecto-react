@@ -17,6 +17,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  useSidebar,
 } from '~/components/ui/sidebar';
 
 const menuItems = [
@@ -30,6 +31,7 @@ const menuItems = [
 ];
 
 export const AppSidebar = () => {
+  const { toggleSidebar } = useSidebar();
   return (
     <Sidebar>
       <SidebarContent>
@@ -40,7 +42,7 @@ export const AppSidebar = () => {
               {menuItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <Link to={'/dashboard' + item.url}>
+                    <Link to={'/dashboard' + item.url} onClick={toggleSidebar}>
                       <item.icon className="h-5 w-5" />
                       <span>{item.title}</span>
                     </Link>
