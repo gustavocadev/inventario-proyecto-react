@@ -111,6 +111,7 @@ export default function FacturacionPagos() {
             <Input
               placeholder="Número de mesa"
               value={nuevaFactura.mesa}
+              type="number"
               onChange={(e) =>
                 setNuevaFactura({ ...nuevaFactura, mesa: e.target.value })
               }
