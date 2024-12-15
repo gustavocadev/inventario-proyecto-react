@@ -1,17 +1,17 @@
-import { useState } from "react";
-import { Button } from "~/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
+import { useState } from 'react';
+import { Button } from '~/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "~/components/ui/select";
+} from '~/components/ui/select';
 
 export default function GeneracionReportes() {
-  const [tipoReporte, setTipoReporte] = useState("");
-  const [periodo, setPeriodo] = useState("");
+  const [tipoReporte, setTipoReporte] = useState('');
+  const [periodo, setPeriodo] = useState('');
 
   const generarReporte = () => {
     // Aquí iría la lógica para generar el reporte seleccionado
@@ -60,7 +60,7 @@ export default function GeneracionReportes() {
           </CardHeader>
           <CardContent>
             <p>
-              Aquí se mostraría una vista previa o resumen del reporte de{" "}
+              Aquí se mostraría una vista previa o resumen del reporte de{' '}
               {tipoReporte} para el período {periodo}.
             </p>
           </CardContent>

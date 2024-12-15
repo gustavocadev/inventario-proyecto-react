@@ -1,48 +1,29 @@
-import { Link } from 'react-router';
+import { Button } from '../ui/button';
+import { Menu } from 'lucide-react';
 
-const routes = [
-  {
-    href: '/dashboard',
-    label: 'Inicio',
-  },
-  {
-    href: '/dashboard/pedidos',
-    label: 'Pedidos',
-  },
-  {
-    href: '/dashboard/inventario',
-    label: 'Inventario',
-  },
-  {
-    href: '/dashboard/reservas',
-    label: 'Reservas',
-  },
-  {
-    href: '/dashboard/facturacion',
-    label: 'Facturación',
-  },
-  {
-    href: '/dashboard/empleados',
-    label: 'Empleados',
-  },
-  {
-    href: '/dashboard/reportes',
-    label: 'Reportes',
-  },
-];
+interface NavbarProps {
+  onToggleSidebar: () => void;
+}
 
-export const Nav = () => {
+export const Nav = ({ onToggleSidebar }: NavbarProps) => {
   return (
-    <nav className="bg-gray-800 text-white p-4">
-      <ul className="flex space-x-4">
-        {routes.map((route) => (
-          <li key={route.href}>
-            <Link to={route.href} className="hover:text-gray-300">
-              {route.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
+    <nav className="bg-white shadow-sm border-b px-4 py-3 flex items-center justify-between">
+      <div className="flex items-center gap-4">
+        <Button variant="ghost" size="icon" onClick={onToggleSidebar}>
+          <Menu className="h-5 w-5" />
+        </Button>
+        <h1 className="text-xl font-semibold text-primary">
+          Restaurante Toromocho 🍉
+        </h1>
+      </div>
+      <div className="flex items-center gap-2">
+        <Button variant="ghost" size="sm">
+          Ayuda
+        </Button>
+        <Button variant="ghost" size="sm">
+          Perfil
+        </Button>
+      </div>
     </nav>
   );
 };
