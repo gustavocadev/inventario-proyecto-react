@@ -134,8 +134,10 @@ export default function FacturacionPagos() {
                 />
               </div>
             ))}
-            <Button onClick={agregarItem}>Agregar Item</Button>
-            <Button onClick={generarFactura}>Generar Factura</Button>
+            <div className="flex gap-2">
+              <Button onClick={agregarItem}>Agregar Item</Button>
+              <Button onClick={generarFactura}>Generar Factura</Button>
+            </div>
           </div>
         </CardContent>
       </Card>
