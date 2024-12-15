@@ -19,7 +19,7 @@ export const LinkCard = ({
 }: Props) => {
   return (
     <Link
-      to={href}
+      to={'/dashboard' + href}
       className="no-underline transform hover:scale-105 transition-transform duration-200 hover:shadow-xl"
       aria-label="Ir a Gestión de Pedidos"
     >
