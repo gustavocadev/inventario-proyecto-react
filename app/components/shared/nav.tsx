@@ -17,7 +17,7 @@ export const Nav = () => {
         >
           <Menu className="h-5 w-5" />
         </Button>
-        <h1 className="text-xl font-semibold text-primary">
+        <h1 className="text-md lg:text-xl font-semibold text-primary">
           Restaurante Toromocho 🍉
         </h1>
       </div>
