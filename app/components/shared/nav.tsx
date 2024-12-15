@@ -1,15 +1,20 @@
 import { Button } from '../ui/button';
 import { Menu } from 'lucide-react';
+import { useSidebar } from '../ui/sidebar';
 
-interface NavbarProps {
-  onToggleSidebar: () => void;
-}
+export const Nav = () => {
+  const { toggleSidebar } = useSidebar();
 
-export const Nav = ({ onToggleSidebar }: NavbarProps) => {
   return (
     <nav className="bg-white shadow-sm border-b px-4 py-3 flex items-center justify-between">
       <div className="flex items-center gap-4">
-        <Button variant="ghost" size="icon" onClick={onToggleSidebar}>
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => {
+            toggleSidebar();
+          }}
+        >
           <Menu className="h-5 w-5" />
         </Button>
         <h1 className="text-xl font-semibold text-primary">
