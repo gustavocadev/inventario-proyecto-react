@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { Button } from "~/components/ui/button";
-import { Input } from "~/components/ui/input";
+import { useState } from 'react';
+import { Button } from '~/components/ui/button';
+import { Input } from '~/components/ui/input';
 import {
   Table,
   TableBody,
@@ -8,26 +8,26 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "~/components/ui/table";
-import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
+} from '~/components/ui/table';
+import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "~/components/ui/select";
+} from '~/components/ui/select';
 
 type Pedido = {
   id: number;
   mesa: number;
   items: string;
-  estado: "pendiente" | "preparando" | "listo" | "entregado" | "cancelado";
+  estado: 'pendiente' | 'preparando' | 'listo' | 'entregado' | 'cancelado';
 };
 
 export default function GestionPedidos() {
   const [pedidos, setPedidos] = useState<Pedido[]>([]);
-  const [nuevoPedido, setNuevoPedido] = useState({ mesa: "", items: "" });
+  const [nuevoPedido, setNuevoPedido] = useState({ mesa: '', items: '' });
 
   const agregarPedido = () => {
     if (nuevoPedido.mesa && nuevoPedido.items) {
@@ -37,14 +37,14 @@ export default function GestionPedidos() {
           id: Date.now(),
           mesa: parseInt(nuevoPedido.mesa),
           items: nuevoPedido.items,
-          estado: "pendiente",
+          estado: 'pendiente',
         },
       ]);
-      setNuevoPedido({ mesa: "", items: "" });
+      setNuevoPedido({ mesa: '', items: '' });
     }
   };
 
-  const actualizarEstado = (id: number, nuevoEstado: Pedido["estado"]) => {
+  const actualizarEstado = (id: number, nuevoEstado: Pedido['estado']) => {
     setPedidos(
       pedidos.map((pedido) =>
         pedido.id === id ? { ...pedido, estado: nuevoEstado } : pedido
@@ -98,10 +98,10 @@ export default function GestionPedidos() {
               <TableCell>{pedido.mesa}</TableCell>
               <TableCell>{pedido.items}</TableCell>
               <TableCell>{pedido.estado}</TableCell>
-              <TableCell>
+              <TableCell className="flex">
                 <Select
                   onValueChange={(value) =>
-                    actualizarEstado(pedido.id, value as Pedido["estado"])
+                    actualizarEstado(pedido.id, value as Pedido['estado'])
                   }
                 >
                   <SelectTrigger>
