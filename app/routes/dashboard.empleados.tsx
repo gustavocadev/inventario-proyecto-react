@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { Button } from "~/components/ui/button";
-import { Input } from "~/components/ui/input";
+import { useState } from 'react';
+import { Button } from '~/components/ui/button';
+import { Input } from '~/components/ui/input';
 import {
   Table,
   TableBody,
@@ -8,8 +8,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "~/components/ui/table";
-import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
+} from '~/components/ui/table';
+import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card';
 
 type Empleado = {
   id: number;
@@ -20,14 +20,21 @@ type Empleado = {
   horaSalida: string;
 };
 
+export function meta() {
+  return [
+    { title: 'Empleados' },
+    { name: 'description', content: 'Gestión de empleados' },
+  ];
+}
+
 export default function GestionEmpleados() {
   const [empleados, setEmpleados] = useState<Empleado[]>([]);
   const [nuevoEmpleado, setNuevoEmpleado] = useState({
-    nombre: "",
-    puesto: "",
-    turno: "",
-    horaEntrada: "",
-    horaSalida: "",
+    nombre: '',
+    puesto: '',
+    turno: '',
+    horaEntrada: '',
+    horaSalida: '',
   });
 
   const agregarEmpleado = () => {
@@ -46,23 +53,23 @@ export default function GestionEmpleados() {
         },
       ]);
       setNuevoEmpleado({
-        nombre: "",
-        puesto: "",
-        turno: "",
-        horaEntrada: "",
-        horaSalida: "",
+        nombre: '',
+        puesto: '',
+        turno: '',
+        horaEntrada: '',
+        horaSalida: '',
       });
     }
   };
 
-  const registrarAsistencia = (id: number, tipo: "entrada" | "salida") => {
+  const registrarAsistencia = (id: number, tipo: 'entrada' | 'salida') => {
     const ahora = new Date().toLocaleTimeString();
     setEmpleados(
       empleados.map((empleado) =>
         empleado.id === id
           ? {
               ...empleado,
-              [tipo === "entrada" ? "horaEntrada" : "horaSalida"]: ahora,
+              [tipo === 'entrada' ? 'horaEntrada' : 'horaSalida']: ahora,
             }
           : empleado
       )
@@ -146,13 +153,13 @@ export default function GestionEmpleados() {
               <TableCell>{empleado.horaSalida}</TableCell>
               <TableCell>
                 <Button
-                  onClick={() => registrarAsistencia(empleado.id, "entrada")}
+                  onClick={() => registrarAsistencia(empleado.id, 'entrada')}
                   className="mr-2"
                 >
                   Entrada
                 </Button>
                 <Button
-                  onClick={() => registrarAsistencia(empleado.id, "salida")}
+                  onClick={() => registrarAsistencia(empleado.id, 'salida')}
                 >
                   Salida
                 </Button>

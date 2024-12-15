@@ -18,6 +18,13 @@ import {
   SelectValue,
 } from '~/components/ui/select';
 
+export function meta() {
+  return [
+    { title: 'Facturación y Pagos' },
+    { name: 'description', content: 'Gestión de facturación y pagos' },
+  ];
+}
+
 type Factura = {
   id: number;
   mesa: number;

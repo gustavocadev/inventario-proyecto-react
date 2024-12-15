@@ -9,6 +9,13 @@ import {
   SelectValue,
 } from '~/components/ui/select';
 
+export function meta() {
+  return [
+    { title: 'Reportes' },
+    { name: 'description', content: 'Gestión de reportes' },
+  ];
+}
+
 export default function GeneracionReportes() {
   const [tipoReporte, setTipoReporte] = useState('');
   const [periodo, setPeriodo] = useState('');

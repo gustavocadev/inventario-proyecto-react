@@ -18,6 +18,13 @@ import {
   SelectValue,
 } from '~/components/ui/select';
 
+export function meta() {
+  return [
+    { title: 'Pedidos' },
+    { name: 'description', content: 'Gestión de pedidos' },
+  ];
+}
+
 type Pedido = {
   id: number;
   mesa: number;

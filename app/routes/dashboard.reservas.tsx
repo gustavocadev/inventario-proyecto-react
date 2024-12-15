@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { Button } from "~/components/ui/button";
-import { Input } from "~/components/ui/input";
+import { useState } from 'react';
+import { Button } from '~/components/ui/button';
+import { Input } from '~/components/ui/input';
 import {
   Table,
   TableBody,
@@ -8,8 +8,15 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "~/components/ui/table";
-import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
+} from '~/components/ui/table';
+import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card';
+
+export function meta() {
+  return [
+    { title: 'Reservas' },
+    { name: 'description', content: 'Gestión de reservas de mesas' },
+  ];
+}
 
 type Reserva = {
   id: number;
@@ -23,11 +30,11 @@ type Reserva = {
 export default function GestionReservas() {
   const [reservas, setReservas] = useState<Reserva[]>([]);
   const [nuevaReserva, setNuevaReserva] = useState({
-    nombre: "",
-    fecha: "",
-    hora: "",
-    mesa: "",
-    personas: "",
+    nombre: '',
+    fecha: '',
+    hora: '',
+    mesa: '',
+    personas: '',
   });
 
   const agregarReserva = () => {
@@ -50,14 +57,14 @@ export default function GestionReservas() {
         },
       ]);
       setNuevaReserva({
-        nombre: "",
-        fecha: "",
-        hora: "",
-        mesa: "",
-        personas: "",
+        nombre: '',
+        fecha: '',
+        hora: '',
+        mesa: '',
+        personas: '',
       });
       // Aquí se enviaría la confirmación por correo o WhatsApp
-      console.log("Enviando confirmación de reserva...");
+      console.log('Enviando confirmación de reserva...');
     }
   };
 
@@ -121,8 +128,8 @@ export default function GestionReservas() {
             key={mesa}
             className={`p-4 text-center ${
               reservas.some((r) => r.mesa === mesa)
-                ? "bg-red-100"
-                : "bg-green-100"
+                ? 'bg-red-100'
+                : 'bg-green-100'
             }`}
           >
             Mesa {mesa}

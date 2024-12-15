@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { Button } from "~/components/ui/button";
-import { Input } from "~/components/ui/input";
+import { useState } from 'react';
+import { Button } from '~/components/ui/button';
+import { Input } from '~/components/ui/input';
 import {
   Table,
   TableBody,
@@ -8,9 +8,16 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "~/components/ui/table";
-import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
-import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
+} from '~/components/ui/table';
+import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card';
+import { Alert, AlertDescription, AlertTitle } from '~/components/ui/alert';
+
+export function meta() {
+  return [
+    { title: 'Inventario' },
+    { name: 'description', content: 'Gestión de inventario' },
+  ];
+}
 
 type Producto = {
   id: number;
@@ -22,9 +29,9 @@ type Producto = {
 export default function AdministracionInventario() {
   const [productos, setProductos] = useState<Producto[]>([]);
   const [nuevoProducto, setNuevoProducto] = useState({
-    nombre: "",
-    cantidad: "",
-    umbral: "",
+    nombre: '',
+    cantidad: '',
+    umbral: '',
   });
 
   const agregarProducto = () => {
@@ -42,7 +49,7 @@ export default function AdministracionInventario() {
           umbral: parseInt(nuevoProducto.umbral),
         },
       ]);
-      setNuevoProducto({ nombre: "", cantidad: "", umbral: "" });
+      setNuevoProducto({ nombre: '', cantidad: '', umbral: '' });
     }
   };
 
