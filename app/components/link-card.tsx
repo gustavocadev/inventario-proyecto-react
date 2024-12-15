@@ -1,14 +1,22 @@
 import { Link } from 'react-router';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
+import { cn } from '~/lib/utils';
 
 type Props = {
   title: string;
   description: string;
   color: string;
+  textColor: string;
   href: string;
 };
 
-export const LinkCard = ({ title, description, color, href }: Props) => {
+export const LinkCard = ({
+  title,
+  description,
+  color,
+  href,
+  textColor,
+}: Props) => {
   return (
     <Link
       to={href}
@@ -17,7 +25,7 @@ export const LinkCard = ({ title, description, color, href }: Props) => {
     >
       <Card className="bg-white text-gray-800 shadow-lg hover:shadow-xl transition-shadow duration-200">
         <CardHeader className={color}>
-          <CardTitle className="text-2xl text-red-600">{title}</CardTitle>
+          <CardTitle className={`text-2xl ${textColor}`}>{title}</CardTitle>
         </CardHeader>
         <CardContent>
           <p className="text-gray-600">{description}</p>
