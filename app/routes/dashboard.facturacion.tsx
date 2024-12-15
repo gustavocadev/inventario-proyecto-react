@@ -49,6 +49,14 @@ export default function FacturacionPagos() {
   };
 
   const generarFactura = () => {
+    const existsTable = facturas.some(
+      (factura) => factura.mesa === parseInt(nuevaFactura.mesa)
+    );
+    if (existsTable) {
+      alert('Ya existe una factura para esta mesa');
+      return;
+    }
+
     if (
       nuevaFactura.mesa &&
       nuevaFactura.items.every(
