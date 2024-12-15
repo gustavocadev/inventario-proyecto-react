@@ -1,11 +1,11 @@
 import { Link, useNavigate } from 'react-router';
-import type { Route } from './+types/home';
+import type { Route } from './+types/_index';
 import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card';
 import { useState } from 'react';
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: 'Restaurante Toro Mocho' },
+    { title: 'Restaurante Toro Mocho 🍉' },
     { name: 'description', content: 'Restaurante Toro Mocho' },
   ];
 }
